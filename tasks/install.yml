@@ -11,10 +11,17 @@
     shell: /bin/bash
 
 - name: prom2teams | Installing dependencies
+  when: ansible_facts['os_family'] == 'Debian'
   apt:
     pkg: "{{ prom2teams_required_libs }}"
     state: present
     update_cache: yes
+    
+- name: prom2teams | Installing dependencies
+  when: ansible_facts['os_family'] == 'RedHat'
+  package:
+    name: "{{ prom2teams_required_libs }}"
+    state: present
 
 - name: prom2teams | Installing required pip packages
   pip:
