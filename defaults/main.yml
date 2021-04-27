@@ -3,6 +3,7 @@
 prom2teams_version: 2.5.5
 prom2teams_required_libs:
   - python3
+  - python3-devel
   - python3-pip
   - gcc
 prom2teams_required_pip_packages:
